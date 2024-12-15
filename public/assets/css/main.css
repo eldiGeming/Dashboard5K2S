@@ -1,0 +1,279 @@
+*{
+  font-family: "Ubuntu", sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  
+  /* box-sizing: border-box; */
+}
+
+.sidebar{
+  background-color:#030303;
+  width: 244px;
+  height: 100vh;
+  padding: 24px;
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  transition: all ease-out 0.2s;
+}
+
+.sidebar .header {
+  position: relative;
+  left: -3px;
+  margin-bottom: 10px;
+}
+
+.sidebar.hide{
+  width: 95px;
+  transition: all ease-in 0.2s;
+}
+
+.main-content{
+  background-color: #E5E5E5;
+  flex-grow: 1;
+  /* width: 100vw;
+  height: 100vh; */
+}
+
+.sidebar .description-header{
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 16px;
+  text-align: center;
+  color: #ffffff;
+  position: relative;
+  top: -10px;
+  
+}
+
+.sidebar.hide .description-header{
+  display: none;
+}
+
+.sidebar a{
+  text-decoration: none;
+}
+
+.sidebar .header .list-item{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 12px 10px;
+  border-radius: 8px;
+  height: 40px;
+  box-sizing: border-box;
+}
+
+.sidebar .header .list-item .icon{
+  margin-right: 12px;
+}
+
+.sidebar .main .list-item .description{
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 16px;
+  text-align: center;
+  color: #ffffff;
+  position: relative;
+  top: -5px;
+}
+
+.sidebar.hide .main .list-item .description{
+  display: none;
+}
+
+.sidebar .main .list-item .icon{
+  margin-right: 12px;
+}
+
+.sidebar .main .list-item{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 12px 10px;
+  border-radius: 8px;
+  /* width: 212px; */
+  box-sizing: border-box;
+}
+
+.sidebar .main .list-item:hover{
+  background: #ff9900;
+  transition: all ease-in 0.2s;
+}
+
+/* Toogle menu */
+#menu-button{
+  width: 32px; 
+  position: absolute;
+  overflow: hidden;
+}
+
+#menu-label{
+  position: relative;
+  display: block;
+  height: 20px;
+  cursor: pointer;
+}
+
+#menu-checkbox{
+  display: none;
+}
+
+#hamburger, #menu-label:after, #menu-label:before{
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: black;
+}
+
+#menu-label:after, #menu-label:before{
+  content: "";
+  transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1) left;
+}
+
+#menu-label:before{
+  top: 0;
+}
+
+#menu-label:after{
+  top: 8px;
+}
+
+#hamburger{
+  top: 16px;
+}
+
+#hamburger:before{
+  content: "MENU";
+  position: absolute;
+  top: 5px;
+  right: 0;
+  left: 0;
+  color: black;
+  font-size: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+
+#menu-checkbox:checked + #menu-label::before{
+  left: -39px;
+}
+
+#menu-checkbox:checked + #menu-label::after {
+  left: 39px;
+}
+
+#menu-checkbox:checked + #menu-label #hamburger::before {
+  animation: moveupthendown 0.8s ease 0.2s forwards,
+  shakeup 0.8s ease 0.2s forwards, 
+  shakedown 0.2s ease 0.8s forwards;
+}
+
+@keyframes moveupthendown {
+  0%{
+      top: 0;
+  }
+  50%{
+      top: -27px;
+  }
+  100%{
+      top: -14px;
+  }
+}
+
+@keyframes shakeup {
+  0%{
+      transform: rotateZ(0);
+  }
+  25%{
+      transform: rotateZ(-10deg);
+  }
+  50%{
+      transform: rotateZ(0);
+  }
+  75%{
+      transform: rotateZ(10deg);
+  }
+  100%{
+      transform: rotateZ(0);
+  }
+}
+
+@keyframes shakedown {
+  0%{
+      transform: rotateZ(0);
+  }
+  80%{
+      transform: rotateZ(3deg);
+  }
+  90%{
+      transform: rotateZ(-3deg);
+  }
+  100%{
+      transform: rotateZ(0);
+  }
+}
+
+.sidebar .profile{
+  background-color:#002842;
+  width: 244px;
+  padding: 24px;
+  display: flex;
+  flex-direction: row;
+  transition: all ease-out 0.2s;
+  position: absolute;
+  left: 0;
+  bottom: 0px;
+  height: 60px;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.sidebar.hide .profile{
+  width: 95px;
+  transition: all ease-in 0.2s;
+}
+
+.sidebar .profile .info{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: end;
+  font-size: 15px;
+  font-weight: 500;
+  color: #ffffff;
+  white-space: nowrap;
+}
+.sidebar .profile .job{
+  margin-top: 5px;
+  font-size: 12px;
+}
+
+.sidebar.hide .profile .info{
+  display: none;
+}
+
+.logout-button {
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center; /* Memastikan ikon dan teks berada di tengah tombol */
+}
+
+.logout-button img {
+  width: 24px; /* Atur ukuran sesuai kebutuhan */
+  height: 24px;
+  position: absolute;
+  right: 30px;
+}
+

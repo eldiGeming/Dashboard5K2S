@@ -1,0 +1,80 @@
+/* style main content */
+.main-content .judul{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 16px;
+  text-align: center;
+  color: #000000;
+  margin-top: 20px;
+}
+
+.main-content .paragraf {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 16px;
+  text-align: center;
+  color: #000000;
+  margin-top: 25px;
+}
+
+.add {
+  background-color: #002842;
+  color: #ffffff;
+  border: 2px solid #000000;
+  padding: 4px;
+}
+
+.add:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.main-content .container {
+  display: flex;
+  justify-content: center; /* Mengatur agar tabel terdistribusi merata */
+  /* gap: 20px; Jarak antara tabel */
+  padding: 20px; /* Padding untuk memberi ruang di sekitar tabel */
+  box-sizing: border-box; /* Memastikan padding tidak menambahkan lebar total */
+}
+
+table, td {
+  border: 1px solid;
+  height: 20px; /* Tinggi tetap untuk setiap sel */
+  width: auto; /* Lebar kolom dihitung secara dinamis */
+}
+
+table {
+  border-collapse: collapse;
+  width: 90%; /* Lebar tabel relatif (misalnya 30% dari lebar layar) */
+  max-width: 1000px; /* Lebar maksimum untuk tabel */
+}
+
+td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  border: 1px solid;
+  border-color: #000000;
+  height: 30px; /* Tinggi tetap untuk setiap sel */
+  text-align: center;
+  padding: 8px;
+  background-color: #002842;
+  color: #ffffff;
+}
+
+.table th:first-child, .table td:first-child {
+  width: 40px; /* Lebar tetap untuk kolom pertama */
+  text-align: center;
+}
+
+.table th:last-child, .table td:last-child {
+  max-width: 50px; /* Lebar tetap untuk kolom pertama */
+  /* text-align: center; */
+}
+

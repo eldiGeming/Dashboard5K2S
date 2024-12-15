@@ -1,0 +1,18 @@
+<?php
+
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class No_permission extends CI_Controller
+{
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
+    public function index()
+    {
+        // Menampilkan halaman tidak memiliki izin
+        $data['title'] = 'Access Denied';
+        $this->load->view('no_permission_view', $data);
+    }
+}
